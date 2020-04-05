@@ -1,0 +1,48 @@
+
+body {
+    font-size: 16px;
+    margin: 1em;
+    color: black;
+}
+
+.header {
+    font-size: 2em;
+}
+
+.table {
+    max-width: 800px;
+    width: 100%;
+    display: table;
+}
+
+.tableBody {
+	display: table-row-group;
+}
+
+.tableRow, .headerRow {
+	display: table-row;
+}
+
+.tableRow:nth-child(even) {
+    background-color: lightgrey;
+}
+
+.tableCell {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+
+.headerRow > .tableCell {
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+input:disabled {
+    background: inherit;
+    border: none;
+    color: inherit;
+}
