@@ -1,5 +1,5 @@
-function row(id) {
-  return `<div id="${id}" class="tableRow">
+const row = 
+  `<div class="tableRow">
     <div class="tableCell">
       <input/>
     </div>
@@ -12,9 +12,7 @@ function row(id) {
       <button type="button" class="remove">Remove</button>
     </div>
   </div>`
-}
 
-let i = 0;
 const table = document.getElementById("tableBody");
 
 function editBook(self) {
@@ -39,8 +37,9 @@ function removeBook(self) {
 }
 
 function addBook() {
-  table.insertAdjacentHTML('beforeend', row(++i))
-  let newRow = document.getElementById(i);
+  table.insertAdjacentHTML('beforeend', row)
+  let rows = document.getElementsByClassName("tableRow");
+  let newRow = rows[rows.length - 1];
 
   let removeButton = newRow.getElementsByClassName("remove")[0]
   removeButton.addEventListener("click", function(){removeBook(removeButton)});
