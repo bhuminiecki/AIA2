@@ -15,24 +15,21 @@ const row =
 
 const table = document.getElementById("tableBody");
 
-function editBook(self) {
-  let thisRow = self.parentNode.parentNode;
+function editBook(thisRow) {
   thisRow.getElementsByClassName("edit")[0].classList.add('hidden');
   thisRow.getElementsByClassName("save")[0].classList.remove('hidden');
   for(x of thisRow.getElementsByTagName("input"))
     x.disabled = false;
 }
 
-function saveBook(self) {
-  let thisRow = self.parentNode.parentNode;
+function saveBook(thisRow) {
   thisRow.getElementsByClassName("save")[0].classList.add('hidden');
   thisRow.getElementsByClassName("edit")[0].classList.remove('hidden');
   for(x of thisRow.getElementsByTagName("input"))
     x.disabled = true;
 }
 
-function removeBook(self) {
-  let thisRow = self.parentNode.parentNode;
+function removeBook(thisRow) {
   table.removeChild(thisRow);
 }
 
@@ -42,13 +39,13 @@ function addBook() {
   let newRow = rows[rows.length - 1];
 
   let removeButton = newRow.getElementsByClassName("remove")[0]
-  removeButton.addEventListener("click", function(){removeBook(removeButton)});
+  removeButton.addEventListener("click", function(){removeBook(newRow)});
 
   let saveButton = newRow.getElementsByClassName("save")[0]
-  saveButton.addEventListener("click", function(){saveBook(saveButton)});
+  saveButton.addEventListener("click", function(){saveBook(newRow)});
 
   let editButton = newRow.getElementsByClassName("edit")[0]
-  editButton.addEventListener("click", function(){editBook(editButton)});
+  editButton.addEventListener("click", function(){editBook(newRow)});
 }
 
 document.getElementById("addBook").addEventListener("click", addBook);
